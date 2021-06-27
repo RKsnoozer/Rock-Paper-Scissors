@@ -11,9 +11,50 @@ function computerPlay() {
             let hand = "scissors";
             break;
     }
-    return hand
+    return hand;
 }
 
 function playRound(playerSelection, computerSelection) {
-    return("")
+    switch(computerSelection) {
+        case "rock":
+            switch(playerSelection) {
+                case "rock":
+                    let result = "Both Rock, Draw!"
+                    break;
+                case "paper":
+                    let result = "You Win, Paper Beats Rock"
+                    break;
+                case "scissors":
+                    let result = "You Lose, Rock Beats Scissors"
+                    break;
+            }
+            break;
+        case "paper":
+            switch(playerSelection) {
+                case "rock":
+                    let result = "You Lose, Paper Beats Rock"
+                    break;
+                case "paper":
+                    let result = "Both Paper, Draw!"
+                    break;
+                case "scissors":
+                    let result = "You Win, Scissors Beats Paper"
+                    break;
+            }
+            break;
+        case "scissors":
+            switch(playerSelection) {
+                case "rock":
+                    let result = "You Win, Rock Beats Paper"
+                    break;
+                case "paper":
+                    let result = "You Lose, Scissors Beats Paper"
+                    break;
+                case "scissors":
+                    let result = "Both Scissors, Draw"
+                    break;
+            }
+            break;
+    }
+    return(result);
 }
