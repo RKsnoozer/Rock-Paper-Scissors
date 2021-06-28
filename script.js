@@ -85,3 +85,5 @@ function BestOf5(playerHand) {
         console.log("You lost the best of 5, only winning ", winCount, " of the games");
     }
 }
+
+BestOf5(prompt("enter rock paper or scissors"))
