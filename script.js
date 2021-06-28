@@ -62,6 +62,7 @@ function playRound(playerSelection, computerSelection) {
 }
 
 function Game(playerHand) {
+    playerHand = playerHand.toLowerCase()
     Ai = computerPlay();
     result = playRound(playerHand, Ai);
     console.log(result);
