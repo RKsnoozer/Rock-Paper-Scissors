@@ -1,3 +1,5 @@
+let winCount = 0
+
 function computerPlay() {
     let hand = ""
     result = Math.floor(Math.random() * 3);
@@ -16,7 +18,6 @@ function computerPlay() {
 }
 
 function playRound(playerSelection, computerSelection) {
-    win = false
     let result = "";
     switch(computerSelection) {
         case "rock":
@@ -26,7 +27,7 @@ function playRound(playerSelection, computerSelection) {
                     break;
                 case "paper":
                     result = "You Win, Paper Beats Rock";
-                    win = true
+                    winCount++;
                     break;
                 case "scissors":
                     result = "You Lose, Rock Beats Scissors";
@@ -43,7 +44,7 @@ function playRound(playerSelection, computerSelection) {
                     break;
                 case "scissors":
                     result = "You Win, Scissors Beats Paper";
-                    win = true
+                    winCount++;
                     break;
             }
             break;
@@ -51,7 +52,7 @@ function playRound(playerSelection, computerSelection) {
             switch(playerSelection) {
                 case "rock":
                     result = "You Win, Rock Beats Paper";
-                    win = true
+                    winCount++;
                     break;
                 case "paper":
                     result = "You Lose, Scissors Beats Paper";
@@ -62,7 +63,7 @@ function playRound(playerSelection, computerSelection) {
             }
             break;
     }
-    return(result, win);
+    return(result);
 }
 
 function singleGame(playerHand) {
@@ -70,17 +71,13 @@ function singleGame(playerHand) {
     Ai = computerPlay();
     result = playRound(playerHand, Ai);
     console.log(result);
-    return(winCount)
 }
 
 function BestOf5(playerHand) {
-    i = 0;
-    winCount = 0;
+    let i = 0;
     while (i < 5) {
         i++;
-        if (singleGame(playerHand) = true) {
-            winCount++;
-        }
+        singleGame(playerHand);
     }
     if (winCount > 2) {
         console.log("You won the best of 5, winning ", winCount, " of the games");
