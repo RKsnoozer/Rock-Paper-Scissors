@@ -3,13 +3,13 @@ function computerPlay() {
     result = Math.floor(Math.random() * 3);
     switch(result) {
         case 0:
-            hand = "rock"
+            hand = "rock";
             break;
         case 1:
-            hand = "paper"
+            hand = "paper";
             break;
         case 2:
-            hand = "scissors"
+            hand = "scissors";
             break;
     }
     return hand;
@@ -21,42 +21,48 @@ function playRound(playerSelection, computerSelection) {
         case "rock":
             switch(playerSelection) {
                 case "rock":
-                    result = "Both Rock, Draw!"
+                    result = "Both Rock, Draw!";
                     break;
                 case "paper":
-                    result = "You Win, Paper Beats Rock"
+                    result = "You Win, Paper Beats Rock";
                     break;
                 case "scissors":
-                    result = "You Lose, Rock Beats Scissors"
+                    result = "You Lose, Rock Beats Scissors";
                     break;
             }
             break;
         case "paper":
             switch(playerSelection) {
                 case "rock":
-                    result = "You Lose, Paper Beats Rock"
+                    result = "You Lose, Paper Beats Rock";
                     break;
                 case "paper":
-                    result = "Both Paper, Draw!"
+                    result = "Both Paper, Draw!";
                     break;
                 case "scissors":
-                    result = "You Win, Scissors Beats Paper"
+                    result = "You Win, Scissors Beats Paper";
                     break;
             }
             break;
         case "scissors":
             switch(playerSelection) {
                 case "rock":
-                    result = "You Win, Rock Beats Paper"
+                    result = "You Win, Rock Beats Paper";
                     break;
                 case "paper":
-                    result = "You Lose, Scissors Beats Paper"
+                    result = "You Lose, Scissors Beats Paper";
                     break;
                 case "scissors":
-                    result = "Both Scissors, Draw"
+                    result = "Both Scissors, Draw";
                     break;
             }
             break;
     }
     return(result);
+}
+
+function Game(playerHand) {
+    Ai = computerPlay();
+    result = playRound(playerHand, Ai);
+    console.log(result);
 }
