@@ -61,9 +61,17 @@ function playRound(playerSelection, computerSelection) {
     return(result);
 }
 
-function Game(playerHand) {
+function singleGame(playerHand) {
     playerHand = playerHand.toLowerCase()
     Ai = computerPlay();
     result = playRound(playerHand, Ai);
     console.log(result);
+}
+
+function BestOf5(playerHand) {
+    i = 0;
+    while (i < 5) {
+        i++;
+        
+    }
 }
