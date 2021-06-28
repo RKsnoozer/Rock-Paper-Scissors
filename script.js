@@ -16,6 +16,7 @@ function computerPlay() {
 }
 
 function playRound(playerSelection, computerSelection) {
+    win = false
     let result = "";
     switch(computerSelection) {
         case "rock":
@@ -25,6 +26,7 @@ function playRound(playerSelection, computerSelection) {
                     break;
                 case "paper":
                     result = "You Win, Paper Beats Rock";
+                    win = true
                     break;
                 case "scissors":
                     result = "You Lose, Rock Beats Scissors";
@@ -41,6 +43,7 @@ function playRound(playerSelection, computerSelection) {
                     break;
                 case "scissors":
                     result = "You Win, Scissors Beats Paper";
+                    win = true
                     break;
             }
             break;
@@ -48,6 +51,7 @@ function playRound(playerSelection, computerSelection) {
             switch(playerSelection) {
                 case "rock":
                     result = "You Win, Rock Beats Paper";
+                    win = true
                     break;
                 case "paper":
                     result = "You Lose, Scissors Beats Paper";
@@ -58,7 +62,7 @@ function playRound(playerSelection, computerSelection) {
             }
             break;
     }
-    return(result);
+    return(result, win);
 }
 
 function singleGame(playerHand) {
@@ -66,12 +70,21 @@ function singleGame(playerHand) {
     Ai = computerPlay();
     result = playRound(playerHand, Ai);
     console.log(result);
+    return(winCount)
 }
 
 function BestOf5(playerHand) {
     i = 0;
+    winCount = 0;
     while (i < 5) {
         i++;
-        
+        if (singleGame(playerHand) = true) {
+            winCount++;
+        }
+    }
+    if (winCount > 2) {
+        console.log("You won the best of 5, winning ", winCount, " of the games");
+    } else {
+        console.log("You lost the best of 5, only winning ", winCount, " of the games");
     }
 }
